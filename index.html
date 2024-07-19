@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Echo Button</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <style>
+    .container {
+      position: relative;
+      text-align: center;
+    }
+    .btn-echo {
+      position: relative;
+      overflow: hidden;
+      padding: 0; /* Remove padding to ensure image is flush with button edges */
+      transition: background-color 0.3s ease; /* Smooth transition for button background */
+      z-index: 1; /* Ensure button is above echo image */
+    }
+    .echo-img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      display: none; /* Initially hide the echo image */
+      z-index: -1; /* Ensure echo image is behind the button */
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <button id="echoButton" class="btn btn-primary btn-lg btn-echo">
+      Echo!
+    </button>
+    <img src="echo6.png" class="echo-img" alt="Echo Image">
+  </div>
+
+  <!-- Bootstrap JS and dependencies (jQuery is required for Bootstrap's JavaScript plugins) -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <!-- Custom JavaScript -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      var echoButton = document.getElementById('echoButton');
+      var echoImg = document.querySelector('.echo-img');
+
+      echoButton.addEventListener('click', function () {
+        // Show the echo image
+        echoImg.style.display = 'block';
+
+        // Optional: Hide echo image after a delay (e.g., 1 second)
+        setTimeout(function () {
+          echoImg.style.display = 'none';
+        }, 1000); // Adjust the timeout value (in milliseconds) as needed
+      });
+    });
+  </script>
+</body>
+</html>
